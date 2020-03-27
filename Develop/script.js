@@ -50,12 +50,12 @@ var includeNumbers= prompt("Do you want to include numbers?").trim();
 var passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
 console.log("Password length before loop: "+ passwordLength);
 while(passwordLength < 8 || passwordLength > 128) {
-  console.log("Password length before first loop prompt: "+ passwordLength);
+  // console.log("Password length before first loop prompt: "+ passwordLength);
   passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
-  console.log("Password length after first loop prompt: "+ passwordLength);
+  // console.log("Password length after first loop prompt: "+ passwordLength);
   if (passwordLength < 8 || passwordLength > 128) {
-    console.log("Password length inside if statement: "+ passwordLength);
-   alert(text.placeHolder("Password must be between 8 and 128 characters!"))
+    // console.log("Password length inside if statement: "+ passwordLength);
+  } else{ alerttext.placeHolder("Password must be between 8 and 128 characters!")
   }
 } 
 var includedSelection =[];
