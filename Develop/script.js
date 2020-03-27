@@ -34,27 +34,30 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-   passwordText.value = password;
+  passwordText.value = password;
 
 }
 
 function generatePassword() {
 
  var includeLowerCase = prompt("Do you want to include lowercase characters?").trim();
-var includeUpperCase = prompt("Do you ant to include upper case?").trim();
+var includeUpperCase = prompt("Do you want to include upper case?").trim();
 
 var includeSpecialCharacters = prompt("Do you want to include special characters?").trim();
 
 var includeNumbers= prompt("Do you want to include numbers?").trim();
 
-var passwordLength = Number(prompt("How many characters would you like your password to include?")).trim();
-//include logic for handling user input for lengths less than 8 and greater than 128
-
-//include placeholder text specifying length requirements
-alert.placeHolder("Password must be between 8 and 128 characters!");
-<input type="text" placeholder="Password must be between 8 and 128 characters!" name="todo-text" id="todo-text" />
-
-
+var passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
+console.log("Password length before loop: "+ passwordLength);
+while(passwordLength < 8 || passwordLength > 128) {
+  console.log("Password length before first loop prompt: "+ passwordLength);
+  passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
+  console.log("Password length after first loop prompt: "+ passwordLength);
+  if (passwordLength < 8 || passwordLength > 128) {
+    console.log("Password length inside if statement: "+ passwordLength);
+   alert(text.placeHolder("Password must be between 8 and 128 characters!"))
+  }
+} 
 var includedSelection =[];
 
 if (includeUpperCase.toLowerCase() === "yes") {
@@ -71,16 +74,14 @@ if (includeNumbers.toLowerCase() === "yes") {
 }
 
 
-//randomize the password based on the input, if 25 char randomly select 25 times. for loop statement 
+var password = "";
 
-//1.create String variable that is empty (eg. password)
-//2.For each character within user specified password length
   var i;
   for (i = 0; i < passwordLength; i++) {
-    //3.Add a random character from includedSelection to your string
-    //stringName += includedSelection[Math.random() % includedSelection.length];
+    var randomSelection = Math.floor(Math.random()*1000) % includedSelection.length;
+    password += includedSelection[randomSelection][Math.floor(Math.random()*1000) % includedSelection[randomSelection].length];
   }
-  //return your string
+  return password;
 }
 
 

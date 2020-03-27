@@ -24,9 +24,7 @@ THEN I select which criteria to include in the password
     // de
 WHEN prompted for the length of the password
 THEN I choose a length of at least 8 characters and no more than 128 characters
-    // prompt(
 
-    )
 WHEN prompted for character types to include in the password
 THEN I choose lowercase, uppercase, numeric, and/or special characters
 WHEN I answer each prompt
@@ -36,6 +34,13 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
+
+<!-- //randomize the password based on the input, if 25 char randomly select 25 times. for loop statement  -->
+
+<!-- //1.create String variable that is empty (eg. password) -->
+
+<!-- //2.For each character within user specified password length -->
+    <!-- //3.Add a random character from includedSelection to your string -->
 
 The following image demonstrates the application functionality:
 
