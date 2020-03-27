@@ -40,14 +40,20 @@ function writePassword() {
 
 function generatePassword() {
 
- var includeLowerCase = prompt("Do you want to include lowercase characters?");
-var includeUpperCase = prompt("Do you ant to include upper case?");
+ var includeLowerCase = prompt("Do you want to include lowercase characters?").trim();
+var includeUpperCase = prompt("Do you ant to include upper case?").trim();
 
-var includeSpecialCharacters = prompt("Do you want to include special characters?");
+var includeSpecialCharacters = prompt("Do you want to include special characters?").trim();
 
-var includeNumbers= prompt("Do you want to include numbers?");
+var includeNumbers= prompt("Do you want to include numbers?").trim();
 
-var passwordLength = Number(prompt("How many characters would you like your password to include?"));
+var passwordLength = Number(prompt("How many characters would you like your password to include?")).trim();
+//include logic for handling user input for lengths less than 8 and greater than 128
+
+//include placeholder text specifying length requirements
+alert.placeHolder("Password must be between 8 and 128 characters!");
+<input type="text" placeholder="Password must be between 8 and 128 characters!" name="todo-text" id="todo-text" />
+
 
 var includedSelection =[];
 
@@ -63,14 +69,20 @@ if (includeSpecialCharacters.toLowerCase() === "yes") {
 if (includeNumbers.toLowerCase() === "yes") {
   includedSelection.push(numChar)
 }
-// console.log(includedSelection);
-}
+
 
 //randomize the password based on the input, if 25 char randomly select 25 times. for loop statement 
-var i;
-for (i = 0; i > 7 && i < 127; i++) {
-  
+
+//1.create String variable that is empty (eg. password)
+//2.For each character within user specified password length
+  var i;
+  for (i = 0; i < passwordLength; i++) {
+    //3.Add a random character from includedSelection to your string
+    //stringName += includedSelection[Math.random() % includedSelection.length];
+  }
+  //return your string
 }
+
 
 
 // Add event listener to generate button
