@@ -54,30 +54,26 @@ while(passwordLength < 8 || passwordLength > 128) {
   alert("Password must be between 8 and 128 characters!")
   passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
   
-// console.log("Password length after first loop prompt: "+ passwordLength);
-  if (passwordLength < 8 || passwordLength > 128) {
-    // console.log("Password length inside if statement: "+ passwordLength);
-  
-  }
 } 
 var includedSelection =[];
 
-if (includeUpperCase.toLowerCase() === "yes") {
-    includedSelection.push(upperChar)
+if (includeUpperCase === "yes") {
+    includedSelection.push(upperChar);
 }
-if (includeLowerCase.toLowerCase() === "yes") {
+if (includeLowerCase === "yes") {
   includedSelection.push(lowerChar)
 }
-if (includeSpecialCharacters.toLowerCase() === "yes") {
+if (includeSpecialCharacters === "yes") {
   includedSelection.push(SpecialChar)
 }
-if (includeNumbers.toLowerCase() === "yes") {
+if (includeNumbers === "yes") {
   includedSelection.push(numChar)
 }
 
 
 var password = "";
 
+  var i;
   for (i = 0; i < passwordLength; i++) {
     var randomSelection = Math.floor(Math.random()*1000) % includedSelection.length;
     password += includedSelection[randomSelection][Math.floor(Math.random()*1000) % includedSelection[randomSelection].length];
