@@ -56,7 +56,6 @@ while(passwordLength < 8 || passwordLength > 128) {
   
 } 
 var includedSelection =[];
-
 if (includeUpperCase === "yes") {
     includedSelection.push(upperChar);
 }
@@ -70,8 +69,8 @@ if (includeNumbers === "yes") {
   includedSelection.push(numChar)
 }
 
-
-var password = "";
+var passwordText = document.querySelector("#password")
+passwordText.value = password;
 
   var i;
   for (i = 0; i < passwordLength; i++) {
