@@ -40,28 +40,30 @@ function writePassword() {
 
 function generatePassword() {
 
- var includeLowerCase = prompt("Do you want to include lowercase characters?").trim();
-var includeUpperCase = prompt("Do you want to include upper case?").trim();
+ var includeLowerCase = confirm("Do you want to include lowercase characters?");
+var includeUpperCase = confirm("Do you want to include upper case?");
+var includeSpecialCharacters = confirm("Do you want to include special characters?");
+var includeNumbers= confirm("Do you want to include numbers?");
 
-var includeSpecialCharacters = prompt("Do you want to include special characters?").trim();
 
-var includeNumbers= prompt("Do you want to include numbers?").trim();
 
 var passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
 console.log("Password length before loop: "+ passwordLength);
 while(passwordLength < 8 || passwordLength > 128) {
   // console.log("Password length before first loop prompt: "+ passwordLength);
+  alert("Password must be between 8 and 128 characters!")
   passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
-  // console.log("Password length after first loop prompt: "+ passwordLength);
+  
+// console.log("Password length after first loop prompt: "+ passwordLength);
   if (passwordLength < 8 || passwordLength > 128) {
     // console.log("Password length inside if statement: "+ passwordLength);
-  } else{ alerttext.placeHolder("Password must be between 8 and 128 characters!")
+  
   }
 } 
 var includedSelection =[];
 
 if (includeUpperCase.toLowerCase() === "yes") {
-  includedSelection.push(upperChar)
+    includedSelection.push(upperChar)
 }
 if (includeLowerCase.toLowerCase() === "yes") {
   includedSelection.push(lowerChar)
@@ -76,7 +78,6 @@ if (includeNumbers.toLowerCase() === "yes") {
 
 var password = "";
 
-  var i;
   for (i = 0; i < passwordLength; i++) {
     var randomSelection = Math.floor(Math.random()*1000) % includedSelection.length;
     password += includedSelection[randomSelection][Math.floor(Math.random()*1000) % includedSelection[randomSelection].length];
