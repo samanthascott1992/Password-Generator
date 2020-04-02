@@ -71,22 +71,20 @@ while(passwordLength < 8 || passwordLength > 128) {
   
 } 
 
-
-
-
-
-
 // var passwordText = document.querySelector("#password")
 // passwordText.value = password;
 // console.log(includedSelection);
+var newPassword = "";
+
 var i;
   for (i = 0; i < passwordLength; i++) {
     var randomSelection = Math.floor(Math.random()*1000) % includedSelection.length;
-    var randomIndex = includedSelection[randomSelection].length;     password += includedSelection[randomSelection][Math.floor(Math.random()*1000) % randomIndex];
+    var randomIndex = includedSelection[randomSelection].length; 
+    newPassword += includedSelection[randomSelection][Math.floor(Math.random()*1000) % randomIndex];
   }
 
 
-  return password;
+  return newPassword;
 }
 
 
