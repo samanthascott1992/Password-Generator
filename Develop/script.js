@@ -42,22 +42,22 @@ function generatePassword() {
  var includedSelection = [];
 
  var includeLowerCase = confirm("Do you want to include lowercase characters?");
-if (includeLowerCase = "true") {
+if (includeLowerCase == true) {
   includedSelection.push(lowerChar)
 }
 
 var includeUpperCase = confirm("Do you want to include upper case?");
-if (includeUpperCase = "true") {
+if (includeUpperCase == true) {
     includedSelection.push(upperChar);
 }
 
 var includeSpecialCharacters = confirm("Do you want to include special characters?");
-if (includeSpecialCharacters = "true") {
+if (includeSpecialCharacters == true) {
   includedSelection.push(SpecialChar)
 }
 
-var includeNumbers= confirm("Do you want to include numbers?");
-if (includeNumbers = "true") {
+var includeNumbers = confirm("Do you want to include numbers?");
+if (includeNumbers == true) {
   includedSelection.push(numChar)
 }
 
@@ -76,13 +76,13 @@ while(passwordLength < 8 || passwordLength > 128) {
 
 
 
-var passwordText = document.querySelector("#password")
-passwordText.value = password;
-console.log(includedSelection);
+// var passwordText = document.querySelector("#password")
+// passwordText.value = password;
+// console.log(includedSelection);
 var i;
   for (i = 0; i < passwordLength; i++) {
     var randomSelection = Math.floor(Math.random()*1000) % includedSelection.length;
-    password += includedSelection[randomSelection][Math.floor(Math.random()*1000) % includedSelection.length];
+    var randomIndex = includedSelection[randomSelection].length;     password += includedSelection[randomSelection][Math.floor(Math.random()*1000) % randomIndex];
   }
 
 
