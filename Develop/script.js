@@ -39,12 +39,27 @@ function writePassword() {
 }
 
 function generatePassword() {
+ var includedSelection = [];
 
  var includeLowerCase = confirm("Do you want to include lowercase characters?");
-var includeUpperCase = confirm("Do you want to include upper case?");
-var includeSpecialCharacters = confirm("Do you want to include special characters?");
-var includeNumbers= confirm("Do you want to include numbers?");
+if (includeLowerCase = "true") {
+  includedSelection.push(lowerChar)
+}
 
+var includeUpperCase = confirm("Do you want to include upper case?");
+if (includeUpperCase = "true") {
+    includedSelection.push(upperChar);
+}
+
+var includeSpecialCharacters = confirm("Do you want to include special characters?");
+if (includeSpecialCharacters = "true") {
+  includedSelection.push(SpecialChar)
+}
+
+var includeNumbers= confirm("Do you want to include numbers?");
+if (includeNumbers = "true") {
+  includedSelection.push(numChar)
+}
 
 
 var passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
@@ -55,28 +70,22 @@ while(passwordLength < 8 || passwordLength > 128) {
   passwordLength = Number(prompt("How many characters would you like your password to include?").trim());
   
 } 
-var includedSelection =[];
-if (includeUpperCase === "yes") {
-    includedSelection.push(upperChar);
-}
-if (includeLowerCase === "yes") {
-  includedSelection.push(lowerChar)
-}
-if (includeSpecialCharacters === "yes") {
-  includedSelection.push(SpecialChar)
-}
-if (includeNumbers === "yes") {
-  includedSelection.push(numChar)
-}
+
+
+
+
+
 
 var passwordText = document.querySelector("#password")
 passwordText.value = password;
-
-  var i;
+console.log(includedSelection);
+var i;
   for (i = 0; i < passwordLength; i++) {
     var randomSelection = Math.floor(Math.random()*1000) % includedSelection.length;
-    password += includedSelection[randomSelection][Math.floor(Math.random()*1000) % includedSelection[randomSelection].length];
+    password += includedSelection[randomSelection][Math.floor(Math.random()*1000) % includedSelection.length];
   }
+
+
   return password;
 }
 
